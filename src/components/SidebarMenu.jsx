@@ -5,7 +5,7 @@ const SidebarMenu = ({menuItems}) =>{
     return(
         <ul className="metismenu" id="menu">
             {menuItems.map(i=>
-            <MenuItem title={i.itemName} buttons={i.itemButtons}/>
+                <MenuItem title={i.itemName} buttons={i.itemButtons}/>
             )}
         </ul>
     );

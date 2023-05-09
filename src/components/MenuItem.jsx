@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import classNames from "classnames";
 
 const MenuItem = ({title, buttons}) =>{
@@ -7,6 +7,10 @@ const MenuItem = ({title, buttons}) =>{
     function onHrefClickHandler(e){
         setActive(!isActive);
     }
+
+    useEffect(()=>{
+       console.log('useEffect');
+    });
 
     return(
         <li className={classNames('',{
