@@ -25,7 +25,7 @@ const SidebarMenu = ({menuItems,MenuItemClick,activeMenuItem}) =>{
 
                     <ul className={activeMenuItem===index ? 'mm-collapse mm-show':'mm-collapse'}>
                         {item.itemButtons.map((buttons,key)=>
-                            <Link to={buttons.link}><a href="index.html"><i className="bi bi-circle"></i>{buttons.buttonsName}</a></Link>
+                            <li><Link to={buttons.link}><i className="bi bi-circle"></i>{buttons.buttonsName}</Link></li>
                         )}
                     </ul>
 
