@@ -1,19 +1,39 @@
 import './App.css';
 import SideBar from "./components/SideBar";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import classNames from "classnames";
 import Products from "./pages/Products";
+import axios, * as others from 'axios';
 
 function App() {
     const [sideBarIsHide,setHide] = useState(false);
     const [sideBarMouseOver, setMouseOver] = useState(false);
     const [activeMenuItem, choiseMenu] = useState(null);
+    const [products,SetProducts] = useState([]);
 
     const menuItems = [
-        {itemName: 'Test item-1', itemButtons:['btn-1','btn-2']},
-        {itemName: 'Test item-2', itemButtons:['btn-1','btn-2']},
-        {itemName: 'Test item-3', itemButtons:['btn-1','btn-2']},
-    ]
+        // {itemName: 'Dev buttons', itemButtons:['rams page','btn-2']},
+        {itemName:'Dev button', itemButtons:[
+            {buttonsName:'ramsPage',link:'rams'}
+            ]}]
+
+
+    const getData = () =>{
+        //const axios = require('axios');
+        axios.get('https://localhost:7281/Ram')
+            .then((response)=>
+            {
+                //SetProducts(response);
+                console.log('useEffect',response.data);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+    }
+
+    useEffect(()=>{
+        getData();
+    },[]);
 
     //to-do
     //Сделать так, что бы при нажатии на пункт меню
