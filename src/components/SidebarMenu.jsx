@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 
 const SidebarMenu = ({menuItems,MenuItemClick,activeMenuItem}) =>{
 
@@ -5,6 +6,7 @@ const SidebarMenu = ({menuItems,MenuItemClick,activeMenuItem}) =>{
         MenuItemClick(index)
         console.log(activeMenuItem===index)
     }
+
     return(
         <ul className="metismenu" id="menu">
             {menuItems.map((item, index)=>(
@@ -22,10 +24,8 @@ const SidebarMenu = ({menuItems,MenuItemClick,activeMenuItem}) =>{
                     </a>
 
                     <ul className={activeMenuItem===index ? 'mm-collapse mm-show':'mm-collapse'}>
-                        {item.itemButtons.map(b=>
-                            <li>
-                                <a href="index.html"><i className="bi bi-circle"></i>{b}</a>
-                            </li>
+                        {item.itemButtons.map((buttons,key)=>
+                            <li><Link to={buttons.link}><i className="bi bi-circle"></i>{buttons.buttonsName}</Link></li>
                         )}
                     </ul>
 
