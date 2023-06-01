@@ -6,28 +6,32 @@ import reportWebVitals from './reportWebVitals';
 import {
     createBrowserRouter,
     RouterProvider,
+    BrowserRouter,
 } from "react-router-dom";
 import Products from "./pages/Products";
 import Error from "./pages/Error";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const router = createBrowserRouter([
-    {
-        path:'/',
-        element:<App/>,
-        errorElement:<Error/>,
-        children:[
-            {
-                path:'rams',
-                element:<Products/>
-            }]
-    }
-])
+// const router = createBrowserRouter([
+//     {
+//         path:'/',
+//         element:<App/>,
+//         errorElement:<Error/>,
+//         children:[
+//             {
+//                 path:'rams',
+//                 element:<Products/>
+//             }]
+//     }
+// ])
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <BrowserRouter>
+        {/*<RouterProvider router={router}/>*/}
+        <App/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

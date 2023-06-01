@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const ProductCard = () => {
+const ProductCard = ({CatergoryName,ProductShortName,Description,Price}) => {
     return(
         <div className="card product-card">
             <div className="d-flex align-items-center justify-content-end gap-3 position-absolute end-0 top-0 m-3">
@@ -19,17 +20,16 @@ const ProductCard = () => {
                     <div className="card-body">
                         <div className="product-info">
                             <a href="javascript:;">
-                                <p className="product-catergory font-13 mb-1">Catergory Name</p>
+                                <p className="product-catergory font-13 mb-1">{CatergoryName}</p>
                             </a>
                             <a href="ecommerce-product-details.html">
-                                <h6 className="product-name mb-2">Product Short Name</h6>
+                                <h6 className="product-name mb-2">{ProductShortName}</h6>
                             </a>
-                            <p className="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p className="card-text">{Description}</p>
                             <div className="d-flex align-items-center">
                                 <div className="mb-1 product-price"><span
                                     className="me-1 text-decoration-line-through">$99.00</span>
-                                    <span className="fs-5">$49.00</span>
+                                    <span className="fs-5">{Price}</span>
                                 </div>
                                 <div className="cursor-pointer ms-auto"><i className="bx bxs-star text-warning"></i>
                                     <i className="bx bxs-star text-warning"></i>
@@ -52,6 +52,13 @@ const ProductCard = () => {
             </div>
         </div>
     );
+}
+
+ProductCard.propTypes={
+    CatergoryName:PropTypes.string,
+    ProductShortName: PropTypes.string,
+    Description:PropTypes.string,
+    Price:PropTypes.string,
 }
 
 export default ProductCard;
