@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import Thead from "./Thead";
 import {useMemo} from "react";
-import {useTable} from "react-table";
 const Table = ({products}) => {
     const [columns,setColumns] =useState();
     const [data,setData] = useState();

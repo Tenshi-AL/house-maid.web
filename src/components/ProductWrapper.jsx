@@ -17,7 +17,7 @@ const ProductWrapper = ({products}) => {
 
                         <div className="product-grid">
                             {
-                                products.map((item,key)=>(<ProductCard key={item.name+key} CatergoryName="Processor" ProductShortName={item.model} Description={item.id} Price={item.priceWithDiscount}/>))
+                                products.map((item,key)=>(<ProductCard key={item.id} CatergoryName="Processor" ProductShortName={item.model} Description={item.id} Price={item.priceWithDiscount}/>))
                             }
                         </div>
                     </div>

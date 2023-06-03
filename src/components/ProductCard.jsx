@@ -58,7 +58,7 @@ ProductCard.propTypes={
     CatergoryName:PropTypes.string,
     ProductShortName: PropTypes.string,
     Description:PropTypes.string,
-    Price:PropTypes.string,
+    Price:PropTypes.number,
 }
 
 export default ProductCard;

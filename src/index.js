@@ -3,35 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-    createBrowserRouter,
-    RouterProvider,
-    BrowserRouter,
-} from "react-router-dom";
-import Products from "./pages/Products";
-import Error from "./pages/Error";
+import {BrowserRouter} from "react-router-dom";
+import rootReducers from './React/Reducers/rootReducers';
+import {createStore} from "redux";
+import {PageBreadcumb} from "./React/Reducers/PageBreadcumb";
+import {setPageBreadcumbTitle} from "./React/Actions";
+import {Provider} from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// const router = createBrowserRouter([
-//     {
-//         path:'/',
-//         element:<App/>,
-//         errorElement:<Error/>,
-//         children:[
-//             {
-//                 path:'rams',
-//                 element:<Products/>
-//             }]
-//     }
-// ])
+const store = createStore(PageBreadcumb);
+console.log('store=',store.getState());
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-        {/*<RouterProvider router={router}/>*/}
-        <App/>
-    </BrowserRouter>
+       <Provider store={store}>
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
+       </Provider>
   </React.StrictMode>
 );
 
